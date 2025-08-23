@@ -7,6 +7,8 @@ import Form from "./Form/Form" ;
 import Counter from "./Counter/Counter" ;
 import Fruit from "./Fruit/Fruit"  ; 
 import Event from './Events/Events' ; 
+import FruitList from './FruitList/FruitList';
+import Toggle from './Toggle/Toggle';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const FruitArray= [
   'framboise',
@@ -26,7 +28,10 @@ root.render(
     {/*//! <Fruit fruits={FruitArray}/> */}
     {/* //?<Counter valDefault={5} step={5}/> */}
     {/* //^<Event/> */}
-    <Form/>
+    {/* <Form/> */}
+    {/* <FruitList/> */}
+    {/* <Toggle/> */}
+    <Counter valDefault={2} step={2} />
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function

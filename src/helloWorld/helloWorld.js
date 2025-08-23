@@ -6,6 +6,20 @@
 import React from "react";
  export default class HelloWorld extends React.Component {
      age = 20 ; 
+     clikcBody = ()=>{
+            alert("body id clicked") ; 
+        } ;
+     componentDidMount() {
+        console.log("component mounted") ;
+        document.addEventListener("click",this.clikcBody)
+    }
+    componentDidUpdate() {
+        console.log("component updating")
+    }
+    componentWillUnmount() {
+        console.log("component IS DEAD ") ; 
+       document.removeEventListener("click",this.clikcBody) ; 
+    }
      render() {
         console.log(this) ; 
         return (<h1>hello {this.props.firstName} {this.age>= 18 ? "adulte" : "minuere" }</h1>) ; 
