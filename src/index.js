@@ -9,6 +9,8 @@ import Fruit from "./Fruit/Fruit"  ;
 import Event from './Events/Events' ; 
 import FruitList from './FruitList/FruitList';
 import Toggle from './Toggle/Toggle';
+import ProductListe from './tps/store/ProductListe';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const FruitArray= [
   'framboise',
@@ -31,7 +33,8 @@ root.render(
     {/* <Form/> */}
     {/* <FruitList/> */}
     {/* <Toggle/> */}
-    <Counter valDefault={2} step={2} />
+    {/* <Counter valDefault={2} step={2} /> */}
+    <ProductListe></ProductListe>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
