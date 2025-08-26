@@ -5,36 +5,42 @@ export default function ProductListe() {
     const [searchInput,setSearchInput] = useState() ; 
     const [categorie,setCategories] = useState([]) ; 
     const [searchCategories,setSearchCategories] = useState() ; 
-    // ? display all products 
-    const displayProducts = ()=>{
-        const productsTemp  = productListe.filter(product=>{
-            return product.title.includes(searchInput) ||
-             product.id.toString().includes(searchInput) ||
-             product.description.includes(searchInput)  ; 
-        }); 
-        if(productsTemp.length >0){
-            return  productsTemp.map((product,key)=>{
-                return <Product products={product} key={key}/>
-            })
-        }else{
-            return <tr>
-                <td colSpan={7}>No items</td>
-            </tr>
-        }
-    }
-    // diplay categories 
+        // diplay categories 
     const diplayCategories = () =>{
         return categorie.map(categorie=>{
             return(
-                <button className={'btn'+ searchCategories===categorie? 'btn-secondary': 'dark' } onClick={(e)=>{
+                <button className={'col-auto btn'+( searchCategories===categorie? 'btn-dark': 'btn-secondary') } onClick={(e)=>{
                     e.preventDefault() ; 
-                    setSearchCategories(categorie)
+                    setSearchCategories(categorie) ; 
+                    const productsTemp2 = productListe.filter(product=>{
+                        return product.category == categorie  ;
+                    }) ;  
                 }}>
                     {categorie}
                 </button>
             )
         })
     }
+    // ? display all products 
+    const displayProducts = ()=>{
+               const productsTemp  = productListe.filter(product=>{
+                return product.title.includes(searchInput) ||
+                product.id.toString().includes(searchInput) ||
+                product.description.includes(searchInput)  ; 
+            }); 
+
+        if(productsTemp.length >0){
+            return  productsTemp.map((product,key)=>{
+                return <Product products={product} key={key}/>
+        }) 
+        }
+        else{
+            return <tr>
+                <td colSpan={7}>No items</td>
+            </tr>
+        }
+    }
+
     // ^ get api of products
     const getProduct = async ()=>{
         await fetch("https://fakestoreapi.com/products")
