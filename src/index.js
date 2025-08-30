@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import HelloWorld from './helloWorld/helloWorld.js';
-// import reportWebVitals from './reportWebVitals';
-// import TextFildes from "./Forms/TextFildes.js" ;
+import HelloWorld from './helloWorld/helloWorld.js';
+import reportWebVitals from './reportWebVitals';
+import TextFildes from "./Forms/TextFildes.js" ;
 import Form from "./Forms/Form" ;
 import Counter from "./Counter/Counter" ;
 import Fruit from "./Fruit/Fruit"  ; 
@@ -10,8 +10,9 @@ import Event from './Events/Events' ;
 import FruitList from './FruitList/FruitList';
 import Toggle from './Toggle/Toggle';
 import ProductListe from './tps/store/ProductListe';
-
-
+import Page from './langageSwitcher/Page';
+import FormValidationBegginers from './tps/formvalidation/FormValidationBegginer.jsx';
+import FormValidation from './FormValidation/FormValidation.jsx';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const FruitArray= [
   'framboise',
@@ -36,8 +37,10 @@ root.render(
     {/* <Toggle/> */}
     {/* <Counter valDefault={2} step={2} /> */}
     {/* <ProductListe></ProductListe> */}
-    <Form />
-  </React.StrictMode>
+    {/* <Form /> */}
+    {/* <Page/> */}
+    <FormValidation/>
+    </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

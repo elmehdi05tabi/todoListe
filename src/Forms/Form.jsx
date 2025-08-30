@@ -1,85 +1,61 @@
-import { Component, useState } from "react"
-export default function Form() {
-    const [formValue,setFormValue] = useState({
-        id: undefined,
-        name:undefined,
-        age :undefined,
-        city:undefined,
-        contries :undefined
-    })
-    const inputNameChange = (e)=>{
-        const currentTarget = e.currentTarget ; 
-        const id = currentTarget.id 
-        let  value = currentTarget.value ;
-        console.log(currentTarget.type) ; 
-        if(currentTarget.type=="checkbox") {
-            value = currentTarget.checked ; 
+import {useState,useRef, useEffect} from 'react' ; 
+export default function Form () {
+    const [formValues,setFormValues] = useState({});
+    //* useRef
+    let inputNameRef = useRef() ;  
+    let inputDateRef = useRef() ;  
+    let inputCityRef = useRef() ;  
+    let inputContriesRef = useRef() ;  
+    let inputAcceptRef = useRef() ;  
+    useEffect( ()=>{
+        inputNameRef.current.value = 'elmehdi'
+        inputDateRef.current.value = '2005-05-16'
+        inputAcceptRef.current.focus() 
+    }
+    )
+    const handelChange = (e)=> {
+        e.preventDefault()  ;
+        console.log(inputNameRef.current.value);
+        setFormValues( {
+            name : inputNameRef.current.value,
+            date :inputDateRef.current.value,
+            city : inputCityRef.current.value,
+            contries:inputContriesRef.current.value,
+            accept :inputAcceptRef.current.checked
         }
-        setFormValue(
-            prevState=> {
-                return {...prevState,...{[id]:value}}
-            }
         ) ; 
-        console.log(formValue) ;
-    }
-        return (
-        <>
-    <div className="container my-3">
-    <form>
-        {JSON.stringify(formValue)}
-        <div className="form-group">
-            <label>Name</label>
-            <input type="text" className="form-control" id="name" onChange={inputNameChange}/>
-        </div>
-        <div className="form-group">
-            <label>Age</label>
-            <input type="text"  id="age" className="form-control" onChange={inputNameChange}/>
-        </div>
-        <div className="form-group">
-            <label>City</label>
-            <input type="text"  id="city" className="form-control" onChange={inputNameChange}/>
-        </div>
-        <div className="form-group">
-            <input type="checkbox" id="accept" className="form-check-input" onChange={inputNameChange}/>
-            <label className="form-check-label" htmlFor="accept">Accept our reuls</label>
-        </div>
-        <select name="" id="countries" className="form-select" onChange={inputNameChange}>
-            <option value="ma">maroc</option>
-            <option value="al">algérie</option>
-            <option value="fr">france</option>
-        </select>
-        <div className="form-gorup">
-            <input type="submit" value="save" className="btn btn-primary" />
-        </div>
-    </form>
-    </div>
-    </>
-    )} ; 
-
-// ! avec classe composant 
-     /*export default class Form  extends Component{
-    constructor (state) {
-        super(state) ; 
-        this.state = {
-            inputName : '',
-            inputAge : '',
-            inputAcceptCondition : false
-        }
-    }
-        inputNameChange = ()=>{
-        let inputName = document.querySelector("#name").value
-        this.state.inputName = inputName ; 
-        console.log(this.state.inputName) ;
-    }
-    inputAgeChange = ()=>{
-        let inputAge = document.querySelector("#age").value
-        this.state.inputAge = inputAge ; 
-        console.log(this.state.inputAge) ; 
-    }
-    inputAcceptConditionChange = ()=> {
-        let acceptCondition = document.querySelector("#accept").checked ; 
-        this.state.inputAcceptCondition = acceptCondition  ; 
-        console.log(this.state.inputAcceptCondition) ;
     } 
-
-    render () {*/ 
+    return (
+        <>
+        {JSON.stringify(formValues)}
+        <form className='container my-3'>
+            <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input type="text" id='name' className='form-control' ref={inputNameRef}/>
+            </div>
+            <div className="form-group">
+                <label htmlFor="date">Date</label>
+                <input type="date" id='date' className='form-control' ref={inputDateRef}/>
+            </div>
+            <div className="form-group">
+                <label htmlFor="city">City</label>
+                <input type="text" id='city' className='form-control' ref={inputCityRef}/>
+            </div>
+            <div className="form-group">
+                <label htmlFor="" className='form-select-label' >Countries</label>
+                <select id='contries' className='form-select' ref={inputContriesRef}>
+                    <option value="ma">Maroc</option>
+                    <option value="al">Algerier</option>
+                    <option value="fr">France</option>
+                </select>
+            </div>
+            <div className="form-group">
+                <input type="checkbox" id='accept' className='form-check-input'  ref={inputAcceptRef}/>
+                <label htmlFor='accept'>Accept Rules</label>
+            </div>
+            <div className="form-group">
+                <input type="submit" value="Save" className='btn btn-primary' onClick={handelChange}/>
+            </div>
+        </form></>
+    )
+}
