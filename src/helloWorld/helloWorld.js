@@ -4,6 +4,7 @@
 //     return (<h1>hello {props.firstName} {age>=18?'adulte':"mineur"}</h1>) ; 
 // }
 import React from "react";
+import { AppContext } from "../Context/App";
  export default class HelloWorld extends React.Component {
      age = 20 ; 
      clikcBody = ()=>{
@@ -11,7 +12,7 @@ import React from "react";
         } ;
      componentDidMount() {
         console.log("component mounted") ;
-        document.addEventListener("click",this.clikcBody)
+        // document.addEventListener("click",this.clikcBody)
     }
     componentDidUpdate() {
         console.log("component updating")
@@ -22,6 +23,14 @@ import React from "react";
     }
      render() {
         console.log(this) ; 
-        return (<h1>hello {this.props.firstName} {this.age>= 18 ? "adulte" : "minuere" }</h1>) ; 
+        return (
+            <>
+            <AppContext.Consumer>
+                {context=>(
+                    <h4 style={(context.isDarkMod)?{color:"white",}:{color:'red'}}>hello {this.props.firstName} {this.age>= 18 ? "adulte" : "minuere" }</h4> 
+                )}
+            </AppContext.Consumer>
+            </>
+        ) ; 
     }
 }

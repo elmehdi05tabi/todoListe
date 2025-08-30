@@ -13,6 +13,8 @@ import ProductListe from './tps/store/ProductListe';
 import Page from './langageSwitcher/Page';
 import FormValidationBegginers from './tps/formvalidation/FormValidationBegginer.jsx';
 import FormValidation from './FormValidation/FormValidation.jsx';
+// import App from './Router/App.jsx';
+import App from './Context/App.jsx'; 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const FruitArray= [
   'framboise',
@@ -39,7 +41,8 @@ root.render(
     {/* <ProductListe></ProductListe> */}
     {/* <Form /> */}
     {/* <Page/> */}
-    <FormValidation/>
+    {/* <App/> */}
+    <App/>
     </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
