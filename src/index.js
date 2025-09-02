@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import HelloWorld from './helloWorld/helloWorld.js';
 import reportWebVitals from './reportWebVitals';
 import TextFildes from "./Forms/TextFildes.js" ;
-import Form from "./Forms/Form" ;
+import Form from "./Forms/Form.jsx" ;
 import Counter from "./Counter/Counter" ;
 import Fruit from "./Fruit/Fruit"  ; 
 import Event from './Events/Events' ; 
@@ -41,12 +41,13 @@ root.render(
     {/* <FruitList/> */}
     {/* <Toggle/> */}
     {/* <Counter valDefault={2} step={2} /> */}
-    {/* <ProductListe></ProductListe> */}
+    <ProductListe></ProductListe>
     {/* <Form /> */}
     {/* <Page/> */}
     {/* <App/> */}
     {/* <CarsListe/> */}
-    <Maths></Maths>
+    {/* <FormValidation></FormValidation> */}
+    {/* <Maths></Maths> */}
     </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function

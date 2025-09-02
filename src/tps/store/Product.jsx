@@ -1,15 +1,15 @@
+
 import Rating from "./Rating";
 
-export default function Product({products}) {
-    return (
-        <tr>
-                    <td className="bg-secondary text-white">{products.id}</td>
-                    <td className="bg-secondary text-white">{products.title}</td>
-                    <td className="bg-secondary text-white">{products.price}</td>
-                    <td className="bg-secondary text-white">{products.description.slice(0,100)}...</td>
-                    <td className="bg-secondary text-white">{products.category}</td>
-                    <td className="bg-secondary text-white"><img src={products.image}  alt={products.title} width={150}/></td>
-                    <td className="bg-secondary text-white"><Rating rate={products.rating.rate} count={products.rating.count}/></td>
-        </tr>
-    )
+export default function Product({product}) {
+    return <tr>
+        <td>{product.id}</td>
+        <td>{product.title}</td>
+        <td>{product.price} $</td>
+        <td>{product.description.slice(0,100)}...</td>
+        <td><span className="badge badge-pill bg-dark">{product.category}</span></td>
+        <td><img width={250} src={product.image} alt={product.title}/></td>
+        <td><Rating rate={product.rating.rate} count={product.rating.count} /> </td>
+
+    </tr>
 }
