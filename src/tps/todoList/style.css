@@ -1,0 +1,89 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+    background-image: linear-gradient(rgb(192, 93, 246),#fff) ; 
+      font-family: 'Poppins', sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 100vh;
+    text-align: center;
+}
+.title{
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px #ddd;
+    color: rgb(192, 93, 246);
+}
+.add-tasks {
+    background-color: #fff;
+    width: 100%;
+    border-radius: 4px ;
+    box-shadow: 1px 1px 4px #ddd;
+    margin-top: 5px;
+    height: 400px;
+    padding: 10px;
+}
+form input:first-child {
+    width: 70%;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 1px 1px 5px rgb(192, 93, 246);
+    color: rgb(192, 93, 246);
+}
+form input:first-child:focus{
+    transform: translateY(-2px);
+    transition : all 0.3s
+}
+form input:last-child {
+    background-color: #fff;
+    border: none;
+    outline: none;
+    padding: 5px;
+    box-shadow: 1px 1px 5px rgb(192, 93, 246);
+    margin-left: 10px;
+    color: rgb(192, 93, 246);
+    border-radius: 5px;
+}
+form input:last-child:hover {
+    background-color: rgb(192, 93, 246);
+    color: #fff;
+    transform: translateY(-2px);
+    transition : all 0.3s ;
+}
+.add-tasks p {
+    margin-top: 25%;
+    height: 100%;
+    font-weight:900 ; 
+    color: #ccc;
+}
+.task {
+    display: flex;
+    justify-content: space-between ; 
+    background-color: #fff;
+    box-shadow: 1px 1px 5px rgb(192, 93, 246);
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+.task-scrole {
+    height: 350px;
+    overflow-y: auto;
+}
+.fa-trash:hover {
+    color: red;
+    transform:translateY(-2px) ;
+    transition: all 0.3s;
+}
