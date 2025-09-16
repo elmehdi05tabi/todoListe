@@ -81,9 +81,10 @@ form input:last-child:hover {
 .task-scrole {
     height: 350px;
     overflow-y: auto;
+    font-style: italic;
 }
 .fa-trash:hover {
     color: red;
     transform:translateY(-2px) ;
     transition: all 0.3s;
-}
+}   

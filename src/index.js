@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import UsersApp from './tps/Users/UsersApp.jsx';
+import UsersApp from './tps/users/UsersApp';
+import Counter, { CounterStore } from './redux/Counter/Counter.jsx';
 import App from './tps/todoList/App.jsx';
+import store from './redux/store/index.js';
+import {Provider} from 'react-redux' ; 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const FruitArray= [
   'framboise',
@@ -11,9 +14,11 @@ const FruitArray= [
 ] 
 root.render(
   <React.StrictMode>
-    <div className='container '>
-    <App/>
-    </div>
+    {/* <div className='container '> */}
+    <Provider store={store}>
+    <CounterStore/>
+    </Provider>
+    {/* </div> */}
     </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function

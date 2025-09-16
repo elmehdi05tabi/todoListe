@@ -1,62 +1,32 @@
-import { useRef,useContext, useEffect } from 'react'
-import { usersContext } from './UsersApp';
-import UsersTable from './UsersTable';
+import React, { useContext } from 'react'
+import { UsersContexte } from './UsersApp'
 export default function UsersAdd() {
-    const context = useContext(usersContext) ;
-    const fullName = useRef() ; 
-    const country = useRef() ; 
-    useEffect(()=>{
-        console.log(context) ; 
-    },[])
-    const handelSubmit =(e)=>{
-        e.preventDefault()  ;
-        console.log(
-            fullName.current.value,
-            country.current.value 
-        )
-        context.addUser({
-            payload: {
-            fullName : fullName.current.value,
-            country   : country.current.value ,
-            id : context.lastId +1 
-            }
-        }) ; 
-        fullName.current.value ='' ; 
-        country.current.value = '' ;
-    }
+    const context = useContext(UsersContexte) ; 
   return (
     <>
-      <h1>Add user</h1>
-            <form onSubmit={handelSubmit}>
-                <div className="mb-3 row">
-                    <label htmlFor="currentId" className="col-sm-2 col-form-label">Current id</label>
-                    <div className="col-sm-10">
-                        <input type="text" readOnly className="form-control-plaintext" id="currentId" 
-                        value={context.lastId+1}
-                        />
-                    </div>
-                </div>
-                <div className="mb-3 row">
-                    <label htmlFor="fullName" className="col-sm-2 col-form-label">Full Name</label>
-                    <div className="col-sm-10">
-                        <input type="text" className="form-control" id="fullName" name="fullName" ref={fullName} />
-                    </div>
-                </div>
-                <div className="mb-3 row">
-                    <label htmlFor="country" className="col-sm-2 col-form-label">Country</label>
-                    <div className="col-sm-10">
-                        <select id='country' name='country' className="form-select" ref={country}>
-                            <option value=''>Select your country</option>
-                            <option value="Morocco">Morocco</option>
-                            <option value="Algeria">Algeria</option>
-                            <option value="Tunisia">Tunisia</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="d-grid gap-2">
-                    <button className="btn btn-primary" type="submit">ADD</button>
-                </div>
-            </form>
-        </>
+        <form>
+            <div className="form-groupe my-3">
+                <label htmlFor="id">Id</label>
+                <input type="text" name='id' id='id' className='form-control' disabled  value={context.lastId+1}/>
+            </div>
+            <div className="form-groupe my-3">
+                <label htmlFor="id">Full Name</label>
+                <input type="text" name='fullName' id='fullName' className='form-control' />
+            </div>
+            <div className="form-groupe my-3">
+                <label htmlFor='country'>Countrys</label>
+                <select name="country" id="country" className='form-select'>
+                    <option selected>Select Country</option>
+                    <option value="Morocco">Morocco</option>
+                    <option value="Algéria">Algéria</option>
+                    <option value="France">France</option>
+                </select>
+            </div>
+            <div className="form-group d-flex gap-5 justify-content-center ">
+                <input type="submit" className='btn btn-outline-primary w-25' value={'Submit'}/>
+                <input type="btn" className='btn btn-outline-secondary  w-25' value={'Reset'}/>
+            </div>
+        </form>
+    </>
   )
 }

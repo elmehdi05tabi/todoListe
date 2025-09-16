@@ -1,35 +1,22 @@
-import React, { createContext, use, useState } from 'react'
-import UsersTable from './UsersTable'
-import UsersAdd from './UsersAdd';
+import { createContext, useContext, useState } from 'react';
+import UsersTable from './UsersTable' ;  
 import UsersLayoute from './UsersLayoute';
- export const usersContext =  createContext({
-      users : [] ,
-      lastId :0,
-      addUser : ()=> null,
-      updateUser :()=> null
-    })
+export const  UsersContexte = createContext({
+    users : [] ,
+    lastId : 0 
+}
+)
 export default function UsersApp() {
-    const [users,setUsers] = useState([]); 
-    const [lastId,setLastId] =useState(0) ; 
-    const addUser = (data)=>{
-       alert('ok')  
-       setUsers(prevState=>[...prevState,data.payload] ) 
-       setLastId(prevState => prevState+1) ; 
-    }
-    const updateUser = (data)=>{
-      const {id,...rest} = data
-     setUsers(prevState=> prevState.map(user=>{
-        if(user.id===id){
-          return {id:user.id,...rest} 
-        }
-        return user 
-      })
-     )} ; 
+    const [users,setUser] = useState([ 
+        {id:1,fullName:'elmehdi tabi',country:'morocco'},
+        {id:2,fullName:'mohamde hassan',country:'algérie'}
+    ]) ; 
+    const [lastId,setLastId] = useState(users.length) 
   return (
-    <>
-    <usersContext.Provider value={{users:users,lastId:lastId,addUser:addUser,updateUser:updateUser}}>
+    <UsersContexte.Provider value={{users:users,lastId:lastId}}>
+    <div className='container my-3'>
     <UsersLayoute/>
-    </usersContext.Provider>
-    </>
+    </div>
+    </UsersContexte.Provider>
   )
 }
