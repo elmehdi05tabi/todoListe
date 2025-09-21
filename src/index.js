@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import UsersApp from './tps/users/UsersApp';
 // import Counter, { CounterStore } from './redux/Counter/Counter.jsx';
 // import App from './tps/todoList/App.jsx';
-import App from './redux/App.jsx';
+import App from './redux-toolkit/App.jsx';
 import {Provider} from 'react-redux' ; 
-import store from './redux/Store.js' ; 
+import store from './redux-toolkit/store/store.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const FruitArray= [
   'framboise',
