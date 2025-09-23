@@ -1,23 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import UsersApp from './tps/users/UsersApp';
-// import Counter, { CounterStore } from './redux/Counter/Counter.jsx';
-// import App from './tps/todoList/App.jsx';
-import App from './redux-toolkit/App.jsx';
-import {Provider} from 'react-redux' ; 
-import store from './redux-toolkit/store/store.js';
+import  App  from './framer_motion/App.jsx';
+import Animation from './tps/animation/Animation.jsx';
+import { motion } from 'framer-motion';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const FruitArray= [
-  'framboise',
-  'citrone',
-  'pomme',
-  'orange'
-] 
 root.render(
   <React.StrictMode>
-    <Provider store={store} >
-      <App/>
-    </Provider>
+    <Animation/>
     </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
