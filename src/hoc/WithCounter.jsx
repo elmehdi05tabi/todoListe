@@ -6,7 +6,7 @@ export default function WithCounter(OrinalCompenent) {
         setCount(prevState => prevState+1) ; 
     }
     return <>
-       <OrinalCompenent count={count} {...props}  incerment={incerment}/>
+       <OrinalCompenent count={count} {...props}  incerment={incerment} />
     </>
     }
   return (
